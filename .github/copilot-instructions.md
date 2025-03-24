@@ -1,7 +1,3 @@
 you are an expert python engineer writing a python client for the REST API found in [lambda-openapi-spec.json](../.knowledge/lambda-openapi-spec.json).
 
 you shall use [httpx](https://www.python-httpx.org/) to write the client. read the [api reference](https://www.python-httpx.org/api/) as you generate the endpoints.
-
-read [lambda-openapi-spec.json](../.knowledge/lambda-openapi-spec.json) and generate interfaces in [../src/lambda_cloud_python](../src/lambda_cloud_python) for each endpoint in the API. The interfaces should be named after the endpoint and should include the relevant parameters and return types. use type hints to ensure clarity and maintainability. add docstrings to each endpoint. add examples in each docstring to demonstrate how to use the endpoint. use google docstring style for the docstrings.
-
-take relevant notes in [docs](../docs/). use markdown format to write the notes. markdown files should be named according to the endpoint they describe. for example, if the endpoint is `get_user`, the markdown file should be named `get_user.md`. if there is a sub-topic for an endpoint, create a separate markdown file for that sub-topic as well. generate mermaid-js diagrams as needed in the docs.
