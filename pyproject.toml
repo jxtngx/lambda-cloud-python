@@ -87,6 +87,9 @@ select = [
 ]
 ignore = [
     "E731",  # Do not assign a lambda expression, use a def
+    "E501", # Ignore line length errors
+    "F405", # Ignore name may be undefined, or defined from star imports
+    "F403", # Ignore 'from module import *' used; unable to detect undefined names
 ]
 # Exclude a variety of commonly ignored directories.
 exclude = [
@@ -95,9 +98,6 @@ exclude = [
 ]
 ignore-init-module-imports = true
 
-[tool.ruff.mccabe]
-# Unlike Flake8, default to a complexity level of 10.
-max-complexity = 10
 
 [tool.mypy]
 files = ["lab"]
