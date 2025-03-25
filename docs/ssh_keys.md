@@ -25,7 +25,7 @@ graph TD
 ### Listing SSH Keys
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, SSHKeys
+from lambda_cloud import LambdaCloudClient, SSHKeys
 
 client = LambdaCloudClient(api_key="your-api-key")
 ssh_keys = SSHKeys(client)
@@ -42,7 +42,7 @@ for key in keys:
 ### Adding an Existing SSH Key
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, SSHKeys
+from lambda_cloud import LambdaCloudClient, SSHKeys
 
 client = LambdaCloudClient(api_key="your-api-key")
 ssh_keys = SSHKeys(client)
@@ -60,7 +60,7 @@ print(f"Added key: {key['name']} (ID: {key['id']})")
 ### Generating a New SSH Key
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, SSHKeys
+from lambda_cloud import LambdaCloudClient, SSHKeys
 
 client = LambdaCloudClient(api_key="your-api-key")
 ssh_keys = SSHKeys(client)
@@ -86,7 +86,7 @@ os.chmod("new_key.pem", 0o400)  # Read-only by owner
 ### Deleting an SSH Key
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, SSHKeys
+from lambda_cloud import LambdaCloudClient, SSHKeys
 
 client = LambdaCloudClient(api_key="your-api-key")
 ssh_keys = SSHKeys(client)
@@ -101,7 +101,7 @@ print(f"SSH key {key_id} deleted successfully")
 ### Workflow: Generate Key and Launch Instance
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, SSHKeys, Instances
+from lambda_cloud import LambdaCloudClient, SSHKeys, Instances
 import os
 
 client = LambdaCloudClient(api_key="your-api-key")

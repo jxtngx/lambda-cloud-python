@@ -24,7 +24,7 @@ The specific types available in Lambda Cloud vary over time as new hardware is a
 ### Listing Instance Types
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, InstanceTypes
+from lambda_cloud import LambdaCloudClient, InstanceTypes
 
 client = LambdaCloudClient(api_key="your-api-key")
 instance_types = InstanceTypes(client)
@@ -59,7 +59,7 @@ for type_name, details in available_types.items():
 ### Checking Availability in a Specific Region
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, InstanceTypes
+from lambda_cloud import LambdaCloudClient, InstanceTypes
 
 client = LambdaCloudClient(api_key="your-api-key")
 instance_types = InstanceTypes(client)

@@ -26,7 +26,7 @@ graph TD
 ### Listing Filesystems
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, Filesystems
+from lambda_cloud import LambdaCloudClient, Filesystems
 
 client = LambdaCloudClient(api_key="your-api-key")
 filesystems = Filesystems(client)
@@ -57,7 +57,7 @@ for fs in fs_list:
 ### Creating a Filesystem
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, Filesystems
+from lambda_cloud import LambdaCloudClient, Filesystems
 
 client = LambdaCloudClient(api_key="your-api-key")
 filesystems = Filesystems(client)
@@ -76,7 +76,7 @@ print(f"Region: {new_fs['region']['name']}")
 ### Deleting a Filesystem
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, Filesystems
+from lambda_cloud import LambdaCloudClient, Filesystems
 
 client = LambdaCloudClient(api_key="your-api-key")
 filesystems = Filesystems(client)
@@ -96,7 +96,7 @@ except Exception as e:
 ### Complete Workflow: Create and Use Filesystem
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, Filesystems, Instances
+from lambda_cloud import LambdaCloudClient, Filesystems, Instances
 import time
 
 client = LambdaCloudClient(api_key="your-api-key")

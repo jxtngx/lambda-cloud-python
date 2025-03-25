@@ -27,7 +27,7 @@ When you replace the rules, you replace the entire set at once. There is no way 
 ### Listing Firewall Rules
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, FirewallRules
+from lambda_cloud import LambdaCloudClient, FirewallRules
 
 client = LambdaCloudClient(api_key="your-api-key")
 firewall = FirewallRules(client)
@@ -56,7 +56,7 @@ for rule in rules:
 ### Replacing Firewall Rules
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, FirewallRules
+from lambda_cloud import LambdaCloudClient, FirewallRules
 
 client = LambdaCloudClient(api_key="your-api-key")
 firewall = FirewallRules(client)
@@ -104,7 +104,7 @@ print(f"Updated firewall with {len(updated_rules)} rules")
 
 ```python
 import requests
-from lambda_cloud_python import LambdaCloudClient, FirewallRules
+from lambda_cloud import LambdaCloudClient, FirewallRules
 
 # Get your current public IP
 my_ip = requests.get("https://api.ipify.org").text

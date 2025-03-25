@@ -17,7 +17,7 @@ Lambda Cloud images are used as the base operating system when launching instanc
 ### Listing Available Images
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, Images
+from lambda_cloud import LambdaCloudClient, Images
 
 client = LambdaCloudClient(api_key="your-api-key")
 images = Images(client)
@@ -41,7 +41,7 @@ for img in available_images:
 ### Finding Images by Family
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, Images
+from lambda_cloud import LambdaCloudClient, Images
 from collections import defaultdict
 
 client = LambdaCloudClient(api_key="your-api-key")
@@ -76,7 +76,7 @@ for family, images in families.items():
 ### Using Images when Launching Instances
 
 ```python
-from lambda_cloud_python import LambdaCloudClient, Images, Instances
+from lambda_cloud import LambdaCloudClient, Images, Instances
 
 client = LambdaCloudClient(api_key="your-api-key")
 images = Images(client)

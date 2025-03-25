@@ -20,7 +20,7 @@ To obtain an API key for Lambda Cloud:
 The Lambda Cloud Python client accepts your API key during initialization and handles authentication for all subsequent API calls.
 
 ```python
-from lambda_cloud_python import LambdaCloudClient
+from lambda_cloud import LambdaCloudClient
 
 # Initialize with your API key
 client = LambdaCloudClient(api_key="your-api-key")
@@ -50,7 +50,7 @@ The underlying HTTP client is configured during initialization, so you don't nee
 
 ```python
 import os
-from lambda_cloud_python import LambdaCloudClient
+from lambda_cloud import LambdaCloudClient
 
 # Get API key from environment variable
 api_key = os.environ.get("LAMBDA_API_KEY")
