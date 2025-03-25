@@ -38,6 +38,9 @@ dependencies = [
     "pydantic",
 ]
 
+[tool.setuptools.dynamic]
+version = {attr = "lambda_cloud.__version__"}
+
 [project.optional-dependencies]
 dev = [
     "ruff",

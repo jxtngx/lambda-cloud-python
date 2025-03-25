@@ -15,4 +15,4 @@ from .ssh_keys import SSHKeys
 __all__ = ["LambdaCloudClient", "Instances", "SSHKeys", "FileSystems", "Images", "FirewallRules"]
 
 # Version of the lambda_cloud package
-__version__ = "0.1.0"
+__version__ = "0.0.1"
