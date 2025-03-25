@@ -48,10 +48,10 @@ import httpx
 from lambda_cloud import LambdaCloudClient, Instances
 
 client = LambdaCloudClient(api_key="your_api_key_here")
-instance_api = Instances(client)
+instances = Instances(client)
 
 try:
-    instances = instance_api.list_instances()
+    instances = instances.list_instances()
 except httpx.HTTPStatusError as e:
     if e.response.status_code == 401:
         print("Authentication failed. Check your API key.")
@@ -67,7 +67,7 @@ For optimal resource management, use the client as a context manager:
 
 ```python
 with LambdaCloudClient(api_key="your_api_key_here") as client:
-    instance_api = Instances(client)
-    instances = instance_api.list_instances()
+    instances = Instances(client)
+    instances = instances.list_instances()
     # The client will be automatically closed when exiting the context
 ```

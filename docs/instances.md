@@ -27,9 +27,9 @@ Retrieve all running instances associated with your account:
 from lambda_cloud import LambdaCloudClient, Instance
 
 client = LambdaCloudClient(api_key="your_api_key")
-instance_api = Instance(client)
+instances = Instance(client)
 
-instances = instance_api.list_instances()
+instances = instances.list_instances()
 for instance in instances:
     print(f"Instance: {instance.name} ({instance.id})")
     print(f"  Status: {instance.status}")
@@ -43,7 +43,7 @@ for instance in instances:
 Retrieve detailed information about a specific instance:
 
 ```python
-instance = instance_api.get_instance("INSTANCE_ID_STRING")
+instance = instances.get_instance("INSTANCE_ID_STRING")
 ```
 
 ### Launching Instances
@@ -64,7 +64,7 @@ launch_request = InstanceLaunchRequest(
 )
 
 # Launch the instance
-response = instance_api.launch_instance(launch_request)
+response = instances.launch_instance(launch_request)
 instance_ids = response.instance_ids
 ```
 
@@ -76,7 +76,7 @@ Restart one or more running instances:
 from lambda_cloud.models.instance import InstanceRestartRequest
 
 restart_request = InstanceRestartRequest(instance_ids=["INSTANCE_ID_STRING"])
-response = instance_api.restart_instances(restart_request)
+response = instances.restart_instances(restart_request)
 ```
 
 ### Terminating Instances
@@ -87,7 +87,7 @@ Terminate instances when they're no longer needed:
 from lambda_cloud.models.instance import InstanceTerminateRequest
 
 terminate_request = InstanceTerminateRequest(instance_ids=["INSTANCE_ID_STRING"])
-response = instance_api.terminate_instances(terminate_request)
+response = instances.terminate_instances(terminate_request)
 ```
 
 ### Updating Instance Details
@@ -98,7 +98,7 @@ Update properties of an existing instance:
 from lambda_cloud.models.instance import InstanceModificationRequest
 
 update_request = InstanceModificationRequest(name="New Instance Name")
-updated_instance = instance_api.update_instance("INSTANCE_ID_STRING", update_request)
+updated_instance = instances.update_instance("INSTANCE_ID_STRING", update_request)
 ```
 
 ### Listing Available Instance Types
@@ -106,7 +106,7 @@ updated_instance = instance_api.update_instance("INSTANCE_ID_STRING", update_req
 Get information about available instance types and their regional availability:
 
 ```python
-instance_types = instance_api.list_instance_types()
+instance_types = instances.list_instance_types()
 
 for type_name, type_info in instance_types.__root__.items():
     instance_type = type_info.instance_type
