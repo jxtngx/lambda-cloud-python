@@ -43,7 +43,7 @@ for instance in instances:
 Retrieve detailed information about a specific instance:
 
 ```python
-instance = instance_api.get_instance("0920582c7ff041399e34823a0be62549")
+instance = instance_api.get_instance("INSTANCE_ID_STRING")
 ```
 
 ### Launching Instances
@@ -75,7 +75,7 @@ Restart one or more running instances:
 ```python
 from lambda_cloud.models.instance import InstanceRestartRequest
 
-restart_request = InstanceRestartRequest(instance_ids=["0920582c7ff041399e34823a0be62549"])
+restart_request = InstanceRestartRequest(instance_ids=["INSTANCE_ID_STRING"])
 response = instance_api.restart_instances(restart_request)
 ```
 
@@ -86,7 +86,7 @@ Terminate instances when they're no longer needed:
 ```python
 from lambda_cloud.models.instance import InstanceTerminateRequest
 
-terminate_request = InstanceTerminateRequest(instance_ids=["0920582c7ff041399e34823a0be62549"])
+terminate_request = InstanceTerminateRequest(instance_ids=["INSTANCE_ID_STRING"])
 response = instance_api.terminate_instances(terminate_request)
 ```
 
@@ -98,7 +98,7 @@ Update properties of an existing instance:
 from lambda_cloud.models.instance import InstanceModificationRequest
 
 update_request = InstanceModificationRequest(name="New Instance Name")
-updated_instance = instance_api.update_instance("0920582c7ff041399e34823a0be62549", update_request)
+updated_instance = instance_api.update_instance("INSTANCE_ID_STRING", update_request)
 ```
 
 ### Listing Available Instance Types

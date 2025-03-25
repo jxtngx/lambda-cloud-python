@@ -50,7 +50,7 @@ class Instances:
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
             >>> instances = Instances(client)
-            >>> instance = instances.get("0920582c7ff041399e34823a0be62549")
+            >>> instance = instances.get("INSTANCE_ID_STRING")
             >>> print(f"Instance name: {instance['name']}")
             >>> print(f"IP address: {instance['ip']}")
             >>> print(f"Status: {instance['status']}")
@@ -73,7 +73,7 @@ class Instances:
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
             >>> instances = Instances(client)
-            >>> updated_instance = instances.update("0920582c7ff041399e34823a0be62549", "New Instance Name")
+            >>> updated_instance = instances.update("INSTANCE_ID_STRING", "New Instance Name")
             >>> print(f"Updated name: {updated_instance['name']}")
         """
         response = self._client._request("POST", f"/api/v1/instances/{instance_id}", json={"name": name})
@@ -149,7 +149,7 @@ class Instances:
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
             >>> instances = Instances(client)
-            >>> result = instances.restart(["0920582c7ff041399e34823a0be62549"])
+            >>> result = instances.restart(["INSTANCE_ID_STRING"])
             >>> for instance in result['restarted_instances']:
             ...     print(f"Restarted: {instance['id']} ({instance['status']})")
         """
@@ -172,7 +172,7 @@ class Instances:
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
             >>> instances = Instances(client)
-            >>> result = instances.terminate(["0920582c7ff041399e34823a0be62549"])
+            >>> result = instances.terminate(["INSTANCE_ID_STRING"])
             >>> for instance in result['terminated_instances']:
             ...     print(f"Terminated: {instance['id']} (new status: {instance['status']})")
         """
