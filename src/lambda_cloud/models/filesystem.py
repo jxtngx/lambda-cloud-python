@@ -36,7 +36,7 @@ class Filesystem(BaseModel):
     created_by: User = Field(..., description="The user in your Team that created the filesystem.")
     is_in_use: bool = Field(
         ...,
-        description="Whether the filesystem is currently in use by an instance. Filesystems that are in use cannot be deleted.",
+        description="Whether the filesystem is currently in use by an instance. FileSystems that are in use cannot be deleted.",
     )
     region: Region = Field(..., description="The region in which the filesystem is deployed.")
     bytes_used: Optional[int] = Field(

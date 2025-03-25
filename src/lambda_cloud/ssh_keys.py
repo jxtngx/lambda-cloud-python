@@ -90,7 +90,7 @@ class SSHKeys:
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
             >>> ssh_keys = SSHKeys(client)
-            >>> ssh_keys.delete("ddf9a910ceb744a0bb95242cbba6cb50")
+            >>> ssh_keys.delete("A_KEY_ID")
             >>> print("SSH key deleted successfully")
         """
         response = self._client._request("DELETE", f"/api/v1/ssh-keys/{key_id}")

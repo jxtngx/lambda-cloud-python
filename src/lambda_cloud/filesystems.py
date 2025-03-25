@@ -11,7 +11,7 @@ class FileSystems:
     """
 
     def __init__(self, client: LambdaCloudClient):
-        """Initialize the Filesystems endpoint group.
+        """Initialize the FileSystems endpoint group.
 
         Args:
             client: The Lambda Cloud API client
@@ -28,7 +28,7 @@ class FileSystems:
 
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
-            >>> filesystems = Filesystems(client)
+            >>> filesystems = FileSystems(client)
             >>> fs_list = filesystems.list()
             >>> for fs in fs_list:
             ...     in_use = "in use" if fs["is_in_use"] else "not in use"
@@ -51,7 +51,7 @@ class FileSystems:
 
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
-            >>> filesystems = Filesystems(client)
+            >>> filesystems = FileSystems(client)
             >>> new_fs = filesystems.create("my-data", "us-west-1")
             >>> print(f"Created filesystem: {new_fs['name']} (ID: {new_fs['id']})")
             >>> print(f"Mount point: {new_fs['mount_point']}")
@@ -72,7 +72,7 @@ class FileSystems:
 
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
-            >>> filesystems = Filesystems(client)
+            >>> filesystems = FileSystems(client)
             >>> result = filesystems.delete("398578a2336b49079e74043f0bd2cfe8")
             >>> print(f"Deleted filesystem IDs: {result['deleted_ids']}")
         """
