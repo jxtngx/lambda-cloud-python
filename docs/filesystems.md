@@ -83,7 +83,7 @@ filesystems = FileSystems(client)
 
 # Delete a filesystem by ID
 # Note: The filesystem must not be attached to any instances
-filesystem_id = "398578a2336b49079e74043f0bd2cfe8"
+filesystem_id = "AN_ID"
 
 try:
     result = filesystems.delete(filesystem_id)

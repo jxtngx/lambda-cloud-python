@@ -73,7 +73,7 @@ class FileSystems:
         Examples:
             >>> client = LambdaCloudClient(api_key="your-api-key")
             >>> filesystems = FileSystems(client)
-            >>> result = filesystems.delete("398578a2336b49079e74043f0bd2cfe8")
+            >>> result = filesystems.delete("AN_ID")
             >>> print(f"Deleted filesystem IDs: {result['deleted_ids']}")
         """
         response = self._client._request("DELETE", f"/api/v1/filesystems/{filesystem_id}")
