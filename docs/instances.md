@@ -24,10 +24,10 @@ stateDiagram-v2
 Retrieve all running instances associated with your account:
 
 ```python
-from lambda_cloud import LambdaCloudClient, Instance
+from lambda_cloud import LambdaCloudClient, Instances
 
 client = LambdaCloudClient(api_key="your_api_key")
-instances = Instance(client)
+instances = Instances(client)
 
 instances = instances.list_instances()
 for instance in instances:
