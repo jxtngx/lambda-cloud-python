@@ -19,7 +19,7 @@ requires = [
 ]
 
 [project]
-name = "lambda-cloud"
+name = "lambda-cloud-python"
 dynamic = ["version"]
 description = "Python client for Lambda Cloud"
 readme = "README.md"
@@ -58,7 +58,7 @@ packaging = [
 ]
 
 [project.urls]
-Repository = "https://github.com/jxtngx/lmabda-cloud-python"
+Repository = "https://github.com/jxtngx/lambda-cloud-python"
 
 [tool.setuptools.packages.find]
 where = ["src"]
