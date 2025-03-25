@@ -3,7 +3,7 @@ from typing import Any, Dict, List
 from .client import LambdaCloudClient
 
 
-class Filesystems:
+class FileSystems:
     """Operations related to filesystems in Lambda Cloud.
 
     This class provides methods for listing, creating, and deleting filesystems
