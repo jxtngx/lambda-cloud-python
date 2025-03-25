@@ -1,6 +1,7 @@
 from typing import Any, Dict, List
 
 from .client import LambdaCloudClient
+from .config import API_VERSION
 
 
 class FirewallRules:
@@ -36,7 +37,7 @@ class FirewallRules:
             ...     port_range = f"{rule['port_range'][0]}-{rule['port_range'][1]}" if 'port_range' in rule else "N/A"
             ...     print(f"Rule: {rule['protocol']} {port_range} from {rule['source_network']} ({rule['description']})")
         """
-        response = self._client._request("GET", "/api/v1/firewall-rules")
+        response = self._client._request("GET", f"{API_VERSION}/firewall-rules")
         return response.get("data", [])
 
     def replace(self, rules: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -76,5 +77,5 @@ class FirewallRules:
             >>> updated_rules = firewall.replace(new_rules)
             >>> print(f"Updated with {len(updated_rules)} rules")
         """
-        response = self._client._request("PUT", "/api/v1/firewall-rules", json={"data": rules})
+        response = self._client._request("PUT", f"{API_VERSION}/firewall-rules", json={"data": rules})
         return response.get("data", [])

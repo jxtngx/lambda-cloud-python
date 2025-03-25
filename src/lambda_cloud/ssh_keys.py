@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Optional
 
 from .client import LambdaCloudClient
+from .config import API_VERSION
 
 
 class SSHKeys:
@@ -33,7 +34,7 @@ class SSHKeys:
             >>> for key in keys:
             ...     print(f"Key: {key['name']} (ID: {key['id']})")
         """
-        response = self._client._request("GET", "/api/v1/ssh-keys")
+        response = self._client._request("GET", f"{API_VERSION}/ssh-keys")
         return response.get("data", [])
 
     def add(self, name: str, public_key: Optional[str] = None) -> Dict[str, Any]:
@@ -73,7 +74,7 @@ class SSHKeys:
         if public_key is not None:
             payload["public_key"] = public_key
 
-        response = self._client._request("POST", "/api/v1/ssh-keys", json=payload)
+        response = self._client._request("POST", f"{API_VERSION}/ssh-keys", json=payload)
         return response.get("data", {})
 
     def delete(self, key_id: str) -> Dict[str, Any]:
@@ -93,5 +94,5 @@ class SSHKeys:
             >>> ssh_keys.delete("A_KEY_ID")
             >>> print("SSH key deleted successfully")
         """
-        response = self._client._request("DELETE", f"/api/v1/ssh-keys/{key_id}")
+        response = self._client._request("DELETE", f"{API_VERSION}/ssh-keys/{key_id}")
         return response.get("data", {})

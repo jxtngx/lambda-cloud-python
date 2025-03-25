@@ -1,6 +1,7 @@
 from typing import Any, Dict
 
 from .client import LambdaCloudClient
+from .config import API_VERSION
 
 
 class InstanceTypes:
@@ -37,5 +38,5 @@ class InstanceTypes:
             ...     print(f"{type_name}: {specs['gpus']}x GPU, {specs['memory_gib']} GiB RAM, ${price}/hr")
             ...     print(f"  Available in regions: {[r['name'] for r in details['regions_with_capacity_available']]}")
         """
-        response = self._client._request("GET", "/api/v1/instance-types")
+        response = self._client._request("GET", f"{API_VERSION}/instance-types")
         return response.get("data", {})

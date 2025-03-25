@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Optional
 
 from .client import LambdaCloudClient
+from .config import API_VERSION
 
 
 class Instances:
@@ -33,7 +34,7 @@ class Instances:
             >>> for instance in all_instances:
             ...     print(f"Instance {instance['id']}: {instance['name']} ({instance['status']})")
         """
-        response = self._client._request("GET", "/api/v1/instances")
+        response = self._client._request("GET", f"{API_VERSION}/instances")
         return response.get("data", [])
 
     def get(self, instance_id: str) -> Dict[str, Any]:
@@ -55,7 +56,7 @@ class Instances:
             >>> print(f"IP address: {instance['ip']}")
             >>> print(f"Status: {instance['status']}")
         """
-        response = self._client._request("GET", f"/api/v1/instances/{instance_id}")
+        response = self._client._request("GET", f"{API_VERSION}/instances/{instance_id}")
         return response.get("data", {})
 
     def update(self, instance_id: str, name: str) -> Dict[str, Any]:
@@ -76,7 +77,7 @@ class Instances:
             >>> updated_instance = instances.update("INSTANCE_ID_STRING", "New Instance Name")
             >>> print(f"Updated name: {updated_instance['name']}")
         """
-        response = self._client._request("POST", f"/api/v1/instances/{instance_id}", json={"name": name})
+        response = self._client._request("POST", f"{API_VERSION}/instances/{instance_id}", json={"name": name})
         return response.get("data", {})
 
     def launch(
@@ -132,7 +133,7 @@ class Instances:
         if user_data is not None:
             payload["user_data"] = user_data
 
-        response = self._client._request("POST", "/api/v1/instance-operations/launch", json=payload)
+        response = self._client._request("POST", f"{API_VERSION}/instance-operations/launch", json=payload)
         return response.get("data", {})
 
     def restart(self, instance_ids: List[str]) -> Dict[str, List[Dict[str, Any]]]:
@@ -154,7 +155,7 @@ class Instances:
             ...     print(f"Restarted: {instance['id']} ({instance['status']})")
         """
         response = self._client._request(
-            "POST", "/api/v1/instance-operations/restart", json={"instance_ids": instance_ids}
+            "POST", f"{API_VERSION}/instance-operations/restart", json={"instance_ids": instance_ids}
         )
         return response.get("data", {})
 
@@ -177,6 +178,6 @@ class Instances:
             ...     print(f"Terminated: {instance['id']} (new status: {instance['status']})")
         """
         response = self._client._request(
-            "POST", "/api/v1/instance-operations/terminate", json={"instance_ids": instance_ids}
+            "POST", f"{API_VERSION}/instance-operations/terminate", json={"instance_ids": instance_ids}
         )
         return response.get("data", {})

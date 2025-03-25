@@ -1,6 +1,7 @@
 from typing import Any, Dict, List
 
 from .client import LambdaCloudClient
+from .config import API_VERSION
 
 
 class FileSystems:
@@ -34,7 +35,7 @@ class FileSystems:
             ...     in_use = "in use" if fs["is_in_use"] else "not in use"
             ...     print(f"Filesystem: {fs['name']} ({in_use}, {fs['region']['name']})")
         """
-        response = self._client._request("GET", "/api/v1/file-systems")
+        response = self._client._request("GET", f"{API_VERSION}/file-systems")
         return response.get("data", [])
 
     def create(self, name: str, region: str) -> Dict[str, Any]:
@@ -56,7 +57,7 @@ class FileSystems:
             >>> print(f"Created filesystem: {new_fs['name']} (ID: {new_fs['id']})")
             >>> print(f"Mount point: {new_fs['mount_point']}")
         """
-        response = self._client._request("POST", "/api/v1/filesystems", json={"name": name, "region": region})
+        response = self._client._request("POST", f"{API_VERSION}/filesystems", json={"name": name, "region": region})
         return response.get("data", {})
 
     def delete(self, filesystem_id: str) -> Dict[str, List[str]]:
@@ -76,5 +77,5 @@ class FileSystems:
             >>> result = filesystems.delete("AN_ID")
             >>> print(f"Deleted filesystem IDs: {result['deleted_ids']}")
         """
-        response = self._client._request("DELETE", f"/api/v1/filesystems/{filesystem_id}")
+        response = self._client._request("DELETE", f"{API_VERSION}/filesystems/{filesystem_id}")
         return response.get("data", {})

@@ -1,6 +1,7 @@
 from typing import Any, Dict, List
 
 from .client import LambdaCloudClient
+from .config import API_VERSION
 
 
 class Images:
@@ -32,5 +33,5 @@ class Images:
             >>> for img in available_images:
             ...     print(f"Image: {img['name']} (Family: {img['family']}, Region: {img['region']['name']})")
         """
-        response = self._client._request("GET", "/api/v1/images")
+        response = self._client._request("GET", f"{API_VERSION}/images")
         return response.get("data", [])
