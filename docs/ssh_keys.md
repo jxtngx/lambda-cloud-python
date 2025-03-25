@@ -92,7 +92,7 @@ client = LambdaCloudClient(api_key="your-api-key")
 ssh_keys = SSHKeys(client)
 
 # Delete a key by ID
-key_id = "ddf9a910ceb744a0bb95242cbba6cb50"
+key_id = "A_KEY_ID"
 ssh_keys.delete(key_id)
 
 print(f"SSH key {key_id} deleted successfully")

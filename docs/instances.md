@@ -1,6 +1,6 @@
 # Instance Operations
 
-Instances are virtual machines that run on Lambda Cloud's infrastructure. The `InstanceAPI` provides methods to create, manage, and terminate instances.
+Instances are virtual machines that run on Lambda Cloud's infrastructure. The `Instance` provides methods to create, manage, and terminate instances.
 
 ## Instance Lifecycle
 
@@ -24,10 +24,10 @@ stateDiagram-v2
 Retrieve all running instances associated with your account:
 
 ```python
-from lambda_cloud import LambdaCloudClient, InstanceAPI
+from lambda_cloud import LambdaCloudClient, Instance
 
 client = LambdaCloudClient(api_key="your_api_key")
-instance_api = InstanceAPI(client)
+instance_api = Instance(client)
 
 instances = instance_api.list_instances()
 for instance in instances:

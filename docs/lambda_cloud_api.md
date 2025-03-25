@@ -17,26 +17,26 @@ client = LambdaCloudClient(api_key="your_api_key_here")
 
 The client is divided into several API interfaces, each focusing on a specific resource type:
 
-- **InstanceAPI**: Manage instances (list, launch, terminate, etc.)
-- **SSHKeyAPI**: Manage SSH keys for instance access
-- **FilesystemAPI**: Manage persistent storage
-- **ImageAPI**: List available machine images
-- **FirewallAPI**: Configure inbound network rules
+- **Instances**: Manage instances (list, launch, terminate, etc.)
+- **SSHKeys**: Manage SSH keys for instance access
+- **FileSystems**: Manage persistent storage
+- **Images**: List available machine images
+- **FirewallRules**: Configure inbound network rules
 
 ## Architecture
 
 ```mermaid
 graph TD
-    Client[LambdaCloudClient] --> |Provides authentication| InstanceAPI
-    Client --> |Provides authentication| SSHKeyAPI
-    Client --> |Provides authentication| FilesystemAPI
-    Client --> |Provides authentication| ImageAPI
-    Client --> |Provides authentication| FirewallAPI
-    InstanceAPI --> |Makes requests to| API[Lambda Cloud API]
-    SSHKeyAPI --> |Makes requests to| API
-    FilesystemAPI --> |Makes requests to| API
-    ImageAPI --> |Makes requests to| API
-    FirewallAPI --> |Makes requests to| API
+    Client[LambdaCloudClient] --> |Provides authentication| Instances
+    Client --> |Provides authentication| SSHKeys
+    Client --> |Provides authentication| FileSystems
+    Client --> |Provides authentication| Images
+    Client --> |Provides authentication| FirewallRules
+    Instances --> |Makes requests to| API[Lambda Cloud API]
+    SSHKeys --> |Makes requests to| API
+    FileSystems --> |Makes requests to| API
+    Images --> |Makes requests to| API
+    FirewallRules --> |Makes requests to| API
 ```
 
 ## Error Handling
@@ -45,10 +45,10 @@ The client raises `httpx.HTTPStatusError` when API requests fail. You can catch 
 
 ```python
 import httpx
-from lambda_cloud import LambdaCloudClient, InstanceAPI
+from lambda_cloud import LambdaCloudClient, Instances
 
 client = LambdaCloudClient(api_key="your_api_key_here")
-instance_api = InstanceAPI(client)
+instance_api = Instances(client)
 
 try:
     instances = instance_api.list_instances()
@@ -67,7 +67,7 @@ For optimal resource management, use the client as a context manager:
 
 ```python
 with LambdaCloudClient(api_key="your_api_key_here") as client:
-    instance_api = InstanceAPI(client)
+    instance_api = Instances(client)
     instances = instance_api.list_instances()
     # The client will be automatically closed when exiting the context
 ```

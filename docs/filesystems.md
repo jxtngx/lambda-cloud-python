@@ -1,10 +1,10 @@
-# Filesystems
+# FileSystems
 
 This document details the operations available for managing filesystems in Lambda Cloud through the Python client.
 
 ## Endpoint Overview
 
-The Filesystems module provides methods for managing persistent storage:
+The FileSystems module provides methods for managing persistent storage:
 
 - List all filesystems in your account
 - Create a new filesystem
@@ -23,13 +23,13 @@ graph TD
 
 ## Usage Examples
 
-### Listing Filesystems
+### Listing FileSystems
 
 ```python
-from lambda_cloud import LambdaCloudClient, Filesystems
+from lambda_cloud import LambdaCloudClient, FileSystems
 
 client = LambdaCloudClient(api_key="your-api-key")
-filesystems = Filesystems(client)
+filesystems = FileSystems(client)
 
 # Get all filesystems
 fs_list = filesystems.list()
@@ -57,10 +57,10 @@ for fs in fs_list:
 ### Creating a Filesystem
 
 ```python
-from lambda_cloud import LambdaCloudClient, Filesystems
+from lambda_cloud import LambdaCloudClient, FileSystems
 
 client = LambdaCloudClient(api_key="your-api-key")
-filesystems = Filesystems(client)
+filesystems = FileSystems(client)
 
 # Create a new filesystem in a specific region
 name = "ml-datasets"  # Must start with a letter and contain only alphanumeric chars and hyphens
@@ -76,10 +76,10 @@ print(f"Region: {new_fs['region']['name']}")
 ### Deleting a Filesystem
 
 ```python
-from lambda_cloud import LambdaCloudClient, Filesystems
+from lambda_cloud import LambdaCloudClient, FileSystems
 
 client = LambdaCloudClient(api_key="your-api-key")
-filesystems = Filesystems(client)
+filesystems = FileSystems(client)
 
 # Delete a filesystem by ID
 # Note: The filesystem must not be attached to any instances
@@ -96,11 +96,11 @@ except Exception as e:
 ### Complete Workflow: Create and Use Filesystem
 
 ```python
-from lambda_cloud import LambdaCloudClient, Filesystems, Instances
+from lambda_cloud import LambdaCloudClient, FileSystems, Instances
 import time
 
 client = LambdaCloudClient(api_key="your-api-key")
-filesystems = Filesystems(client)
+filesystems = FileSystems(client)
 instances = Instances(client)
 
 # Step 1: Create filesystem
